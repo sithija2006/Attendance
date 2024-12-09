@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom keyframe animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 1s ease-out;
+        }
+
+        .pulse-on-hover:hover {
+            animation: pulse 0.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-8 space-y-8">
+
+        <!-- Header Section -->
+        <div class="text-center fade-in-up">
+            <h1 class="text-4xl font-semibold text-gray-800 mb-4">Employee Attendance</h1>
+            <p class="text-lg text-gray-600">Use the webcam to mark attendance automatically</p>
+        </div>
+
+        <!-- Webcam Feed Section -->
+        <div class="flex justify-center">
+            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md slide-in-right">
+                <h2 class="text-xl font-semibold text-center text-gray-800 mb-4">Webcam Feed</h2>
+                <div class="flex justify-center mb-4">
+                    <video id="camera" autoplay class="w-full h-64 border-2 border-gray-300 rounded-lg"></video>
+                </div>
+
+                <!-- Result Section -->
+                <div id="result" class="text-center text-lg text-gray-700 font-semibold mt-4">
+                    <!-- Dynamically updated result will show here -->
+                    <p class="hidden" id="attendance-status">Attendance Marked Successfully!</p>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <script src="/static/css/js/attendance.js"></script>
+</body>
+
+</html>
